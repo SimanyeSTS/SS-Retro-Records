@@ -12,3 +12,16 @@
 }
 
 /*Comment*/
+body{
+    display: flexbox;
+    align-content: center;
+}
+
+.header{
+    background-color: #ff5722;
+}
+
+.logo{
+    display: inline-flex;
+    align-content: flex-start;
+}

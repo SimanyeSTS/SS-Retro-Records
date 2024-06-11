@@ -134,6 +134,7 @@ button{
     font-family: Maiden;
     color: #8B4513;
     font-size: 30px;
+    font: bold;
 }
 
     
@@ -151,4 +152,17 @@ button{
 
  .aboutPic p {
     margin: 0;
+ }
+
+#searchButton:hover {
+    background-color: #7DF9FF;
+    
+}
+ #searchButton  {
+    color: #FF5722;
+    border: solid #FF5722;
+ }
+ 
+ [data-bs-toggle] {
+    color: #8B4513;
  }

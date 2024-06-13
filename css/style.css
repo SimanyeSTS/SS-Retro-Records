@@ -93,7 +93,7 @@ body {
     transform: translateY(-50%);
 }
 
-.explore {
+.explore, .send {
     margin-left: 10px;
     padding: 5px 10px;
     font-size: 18px;
@@ -103,10 +103,10 @@ body {
     border-radius: 5px;
 }
 
-.explore{
+.explore, .send {
     background-color: #7DF9FF;
 }
-.explore:hover {
+.explore, .send:hover {
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -115,7 +115,7 @@ button{
     font-family: cursive;
 }
 
-.aboutName {
+.aboutName, .contactName {
     position: absolute;
     left: 10px;
     color: white;
@@ -125,7 +125,7 @@ button{
     font-family: Maiden;
 }
 
-.aboutPic {
+.aboutPic, .contactPic {
     position: relative;
     display: block;
 }
@@ -138,7 +138,7 @@ button{
 }
 
 
-.aboutPic {
+.aboutPic, .contactPic {
         display: flex;
         align-items: center;
         gap: 20px;
@@ -146,7 +146,7 @@ button{
 
 
 
- .aboutPic img {
+ .aboutPic img, .contactPic {
     flex-shrink: 0;
  }   
 
@@ -212,4 +212,28 @@ button{
             font-family: Maiden;
             margin: 10px;
         }
+
+        input {
+
+            border-radius: 5px;
+        }
+
+        form {
+            font-family: Maiden;
+            font-size: large;
+            color: #8B4513;
+            height: min-content;
+        }
         
+        form label {
+            border-radius: 5px;
+            display: block;
+        }
+
+        .contact-info {
+            font-family: Maiden;
+            font-size: large;
+            color: #8B4513;
+        }
+        
+       

@@ -23,6 +23,7 @@ body {
 
 .header{
     background-color: #ff5722;
+    position: sticky;
 }
 
 .container {
@@ -158,7 +159,7 @@ button{
     background-color: #7DF9FF;
 
 }
- #searchButton  {
+ #searchButton, #mediaButton, #playersButton, #resetBtn {
     color: #7DF9FF;
     border: solid #7DF9FF;
  }
@@ -235,5 +236,31 @@ button{
             font-size: large;
             color: #8B4513;
         }
+
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+         }
+
+         
+td, th {
+    border: 1px solid #8B4513;
+    padding: .2em .7em;
+    font-size: 95%; }
+
+    td img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .checkoutName {
+        color: #8B4513;
+        font-family: Maiden;
+    }
+
+    .checkoutTable {
+        color: #8B4513;
+        margin: auto;
+    }
         
        

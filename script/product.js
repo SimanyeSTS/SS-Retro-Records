@@ -45,3 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
       displayProducts(sortedProducts);
   });
 
+  sortHighLowButton.addEventListener('click', () => {
+      let sortedProducts = [...allProducts].sort((a, b) => b.price - a.price);
+      displayProducts(sortedProducts);
+  });
+
+ 

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBody.textContent = product.description;
 
 
-      let modal = new bootstrap.Modal(document.getElementById('productModal'));
+      let modal = new bootstrap.Modal(document.querySelector('#productModal'));
       modal.show();
   }
 

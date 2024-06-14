@@ -50,4 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
       displayProducts(sortedProducts);
   });
 
- 
+  mediaButton.addEventListener('click', () => {
+      let mediaProducts = allProducts.filter(product => ['Vinyl', 'VHS', 'Cassette Tape'].includes(product.type));
+      displayProducts(mediaProducts);
+  });
+
+  playersButton.addEventListener('click', () => {
+      let playerProducts = allProducts.filter(product => ['Turntable', 'VHS Player', 'Cassette Stereo'].includes(product.type));
+      displayProducts(playerProducts);
+  });
+
+  resetButton.addEventListener('click', () => {
+      displayProducts(allProducts);
+  });
+});

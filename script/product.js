@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
       let productsContainer = document.querySelector('#productsContainer');
       productsContainer.innerHTML = '';
 
+      if (productsData.length === 0) {
+          let notFoundMessage = document.createElement('div');
+          notFoundMessage.className = 'not-found';
+          notFoundMessage.innerHTML = '<h2>Product Not Found</h2>';
+          productsContainer.appendChild(notFoundMessage);
+          return;
+      }
+
       productsData.forEach(product => {
           let productCard = document.createElement('div');
           productCard.className = 'card';
@@ -15,13 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
               <h1>${product.model}</h1>
               <h4>${product.type}</h4>
               <p>Available: ${product.available ? 'Yes' : 'No'}</p>
-              <button>Description</button>
+              <button class="descriptionButton" data-id="${product.id}">Description</button>
               <p>Price: R${product.price}</p>
-              <button>Add to Cart</button>
+              <button class="addToCartButton" data-id="${product.id}">Add to Cart</button>
           `;
 
           productsContainer.appendChild(productCard);
+
+          productCard.querySelector('.addToCartButton').addEventListener('click', () => {
+              addToCart(product);
+          });
+
+          productCard.querySelector('.descriptionButton').addEventListener('click', () => {
+              showModal(product);
+          });
       });
+  }
+
+  function showModal(product) {
+      let modalTitle = document.querySelector('.modal-title');
+      let modalBody = document.querySelector('.modal-body p');
+
+      modalTitle.textContent = `${product.name} - ${product.model}`;
+      modalBody.textContent = product.description;
+
+
+      let modal = new bootstrap.Modal(document.getElementById('productModal'));
+      modal.show();
   }
 
   let searchInput = document.querySelector('#searchInput');
@@ -30,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let sortHighLowButton = document.querySelector('#sortHighLow');
   let mediaButton = document.querySelector('#mediaButton');
   let playersButton = document.querySelector('#playersButton');
-  let resetButton = document.querySelector('#resetBtn');
+  let resetButton = document.querySelector('#resetButton');
 
   searchButton.addEventListener('click', () => {
       let query = searchInput.value.toLowerCase();
@@ -63,4 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
   resetButton.addEventListener('click', () => {
       displayProducts(allProducts);
   });
+
+  function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      let existingProduct = cart.find(item => item.id === product.id);
+      if (existingProduct) {
+          existingProduct.quantity++;
+      } else {
+          cart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      updateCartCounter(cart.length);
+  }
+
+  function updateCartCounter(count) {
+      document.querySelector('#cartCounter').textContent = count;
+  }
+
+  displayProducts(allProducts);
 });

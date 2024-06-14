@@ -159,7 +159,7 @@ button{
     background-color: #7DF9FF;
 
 }
- #searchButton  {
+ #searchButton, #mediaButton, #playersButton, #resetBtn {
     color: #7DF9FF;
     border: solid #7DF9FF;
  }
@@ -262,7 +262,5 @@ td, th {
         color: #8B4513;
         margin: auto;
     }
-
-
         
        
